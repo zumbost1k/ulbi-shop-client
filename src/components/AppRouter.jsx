@@ -4,7 +4,6 @@ import { authRoutes, publicRoutes } from '../routes';
 import { Context } from '../index.js';
 const AppRouter = () => {
   const { user } = useContext(Context);
-  console.log(user);
   return (
     <Routes>
       {user.isAuth === true &&

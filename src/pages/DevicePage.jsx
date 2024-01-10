@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { fetchOneDevice } from '../http/deviceAPI';
+import { addDeviceToBasket, fetchOneDevice } from '../http/deviceAPI';
 
 const DevicePage = () => {
   const [device, setDevice] = useState({ info: [] });
@@ -48,7 +48,14 @@ const DevicePage = () => {
             }}
           >
             <h3>from: {device.price} BYN.</h3>
-            <Button variant={'outline-dark'}>Add to basket</Button>
+            <Button
+              variant={'outline-dark'}
+              onClick={() => {
+                addDeviceToBasket({ deviceId: id });
+              }}
+            >
+              Add to basket
+            </Button>
           </Card>
         </Col>
       </Row>
